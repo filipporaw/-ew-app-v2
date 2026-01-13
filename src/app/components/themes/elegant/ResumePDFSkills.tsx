@@ -35,7 +35,7 @@ export const ResumePDFSkills = ({
                       height: "7pt",
                       width: "7pt",
                       marginLeft: dotIdx === 0 ? 0 : "3pt",
-                      borderRadius: "100%",
+                      borderRadius: 3.5,
                       backgroundColor: fs.rating > dotIdx ? themeColor : "#d9d9d9",
                     }}
                   />
