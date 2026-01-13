@@ -108,11 +108,11 @@ export const RoadBulletList = ({
       {cleaned.map((item, idx) => (
         <View key={idx} style={{ ...styles.flexRow, flexWrap: "nowrap", width: "100%" }}>
           {showBulletPoints ? (
-            <Text style={{ width: spacing["4"], lineHeight: 0.95, flexShrink: 0 }}>
+            <Text style={{ width: spacing["4"], lineHeight: 0.5, flexShrink: 0 }}>
               {"•"}
             </Text>
           ) : null}
-          <Text style={{ flex: 1, lineHeight: 0.95 }}>{item}</Text>
+          <Text style={{ flex: 1, lineHeight: 0.5 }}>{item}</Text>
         </View>
       ))}
     </View>

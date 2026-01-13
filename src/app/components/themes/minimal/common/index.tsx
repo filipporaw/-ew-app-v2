@@ -87,7 +87,7 @@ export const ResumePDFBulletList = ({
               style={{
                 paddingLeft: spacing["2"],
                 paddingRight: spacing["2"],
-                lineHeight: "1.15",
+                lineHeight: 0.6,
               }}
               bold={true}
             >
@@ -96,7 +96,7 @@ export const ResumePDFBulletList = ({
           )}
           <ResumePDFText
             style={{ 
-              lineHeight: "1.15"
+              lineHeight: 0.6
             }}
           >
             {item}
