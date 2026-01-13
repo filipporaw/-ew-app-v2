@@ -1,0 +1,184 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rover Layout Bug Fixes matches snapshot for Rover header with photo 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="view"
+    style="display: flex; flex-direction: column; margin-top: 6pt;"
+  >
+    <div
+      data-testid="view"
+      style="display: flex; flex-direction: row; align-items: flex-start;"
+    >
+      <div
+        data-testid="view"
+        style="width: 80pt;"
+      >
+        <div
+          data-testid="rover-photo"
+        >
+          test-photo.jpg
+        </div>
+      </div>
+      <div
+        data-testid="view"
+        style="display: flex; flex-direction: column; flex: 1; margin-left: 6pt;"
+      >
+        <div
+          data-testid="view"
+        >
+          <div
+            data-testid="rover-text"
+            style="font-size: 24pt; line-height: 1.1; word-break: break-word; overflow-wrap: break-word;"
+          >
+            John Doe
+          </div>
+        </div>
+        <div
+          data-testid="view"
+          style="margin-top: 3pt;"
+        >
+          <div
+            data-testid="rover-text"
+            style="line-height: 1.25;"
+          >
+            Experienced Engineer
+          </div>
+        </div>
+        <div
+          data-testid="view"
+          style="display: flex; flex-direction: column; gap: 3pt; margin-top: 6pt;"
+        >
+          <div
+            data-testid="rover-link"
+          >
+            <div
+              data-testid="rover-text"
+              style="line-height: 1.25;"
+            >
+              Email: john@example.com
+            </div>
+          </div>
+          <div
+            data-testid="rover-link"
+          >
+            <div
+              data-testid="rover-text"
+              style="line-height: 1.25;"
+            >
+              Mobile: 123456789
+            </div>
+          </div>
+          <div
+            data-testid="rover-link"
+          >
+            <div
+              data-testid="rover-text"
+              style="line-height: 1.25;"
+            >
+              Website: example.com
+            </div>
+          </div>
+          <div
+            data-testid="view"
+          >
+            <div
+              data-testid="rover-text"
+              style="line-height: 1.25;"
+            >
+              Location: NYC
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Rover Layout Bug Fixes matches snapshot for Rover header without photo 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="view"
+    style="display: flex; flex-direction: column; margin-top: 6pt;"
+  >
+    <div
+      data-testid="view"
+      style="display: flex; flex-direction: column;"
+    >
+      <div
+        data-testid="view"
+        style="display: flex; flex-direction: row; justify-content: space-between; align-items: flex-start;"
+      >
+        <div
+          data-testid="view"
+          style="flex: 1; padding-right: 18pt;"
+        >
+          <div
+            data-testid="rover-text"
+            style="font-size: 24pt; line-height: 1.1; word-break: break-word; overflow-wrap: break-word;"
+          >
+            John Doe
+          </div>
+        </div>
+        <div
+          data-testid="view"
+          style="display: flex; flex-direction: column; align-items: flex-end; gap: 3pt;"
+        >
+          <div
+            data-testid="rover-link"
+          >
+            <div
+              data-testid="rover-text"
+              style="text-align: right; line-height: 1.25;"
+            >
+              Email: john@example.com
+            </div>
+          </div>
+          <div
+            data-testid="rover-link"
+          >
+            <div
+              data-testid="rover-text"
+              style="text-align: right; line-height: 1.25;"
+            >
+              Mobile: 123456789
+            </div>
+          </div>
+          <div
+            data-testid="rover-link"
+          >
+            <div
+              data-testid="rover-text"
+              style="text-align: right; line-height: 1.25;"
+            >
+              Website: example.com
+            </div>
+          </div>
+          <div
+            data-testid="view"
+          >
+            <div
+              data-testid="rover-text"
+              style="text-align: right; line-height: 1.25;"
+            >
+              Location: NYC
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        data-testid="view"
+        style="margin-top: 12pt;"
+      >
+        <div
+          data-testid="rover-text"
+          style="line-height: 1.25; text-align: left;"
+        >
+          Experienced Engineer
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

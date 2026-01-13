@@ -1,0 +1,44 @@
+import { View } from "@react-pdf/renderer";
+import {
+  ResumePDFSection,
+  ResumePDFBulletList,
+  ResumePDFText,
+} from "components/themes/core";
+import { styles, spacing } from "components/themes/styles";
+import type { ResumeProject } from "lib/redux/types";
+
+export const ResumePDFProject = ({
+  heading,
+  projects,
+  themeColor,
+  showBulletPoints = true,
+}: {
+  heading: string;
+  projects: ResumeProject[];
+  themeColor: string;
+  showBulletPoints?: boolean;
+}) => {
+  return (
+    <ResumePDFSection themeColor={themeColor} heading={heading}>
+      {projects.map(({ project, date, descriptions }, idx) => (
+        <View key={idx}>
+          <View
+            style={{
+              ...styles.flexRowBetween,
+              marginTop: spacing["0.5"],
+            }}
+          >
+            <ResumePDFText bold={true}>{project}</ResumePDFText>
+            <ResumePDFText>{date}</ResumePDFText>
+          </View>
+          <View style={{ ...styles.flexCol, marginTop: spacing["0.5"] }}>
+            <ResumePDFBulletList
+              items={descriptions}
+              showBulletPoints={showBulletPoints}
+            />
+          </View>
+        </View>
+      ))}
+    </ResumePDFSection>
+  );
+};
