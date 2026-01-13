@@ -1,7 +1,42 @@
 import { View } from "@react-pdf/renderer";
 import type { ResumeSkills } from "lib/redux/types";
+import type { Style } from "@react-pdf/types";
 import { styles, spacing } from "components/themes/styles";
 import { RoverBulletList, RoverSection, RoverText } from "./common";
+
+const RoverFeaturedSkill = ({
+  skill,
+  rating,
+  themeColor,
+  style = {},
+}: {
+  skill: string;
+  rating: number;
+  themeColor: string;
+  style?: Style;
+}) => {
+  const numCircles = 5;
+
+  return (
+    <View style={{ ...styles.flexRow, alignItems: "center", ...style }}>
+      <RoverText style={{ marginRight: spacing[0.5] } as any}>
+        {skill}
+      </RoverText>
+      {[...Array(numCircles)].map((_, idx) => (
+        <View
+          key={idx}
+          style={{
+            height: "7pt",
+            width: "7pt",
+            marginLeft: "2.25pt",
+            backgroundColor: rating >= idx ? themeColor : "#d9d9d9",
+            borderRadius: 3.5,
+          }}
+        />
+      ))}
+    </View>
+  );
+};
 
 export const ResumePDFSkills = ({
   heading,
@@ -16,35 +51,42 @@ export const ResumePDFSkills = ({
 }) => {
   const { descriptions, featuredSkills } = skills;
   const featuredSkillsWithText = featuredSkills.filter((item) => item.skill);
-  const numDots = 5;
+  const featuredSkillsPair = [
+    [featuredSkillsWithText[0], featuredSkillsWithText[3]],
+    [featuredSkillsWithText[1], featuredSkillsWithText[4]],
+    [featuredSkillsWithText[2], featuredSkillsWithText[5]],
+  ];
 
   return (
     <RoverSection heading={heading} themeColor={themeColor}>
-      {featuredSkillsWithText.length > 0 ? (
-        <View style={{ ...styles.flexCol, gap: spacing["1"] }}>
-          {featuredSkillsWithText.map((fs, idx) => (
-            <View key={idx} style={{ ...styles.flexRowBetween, gap: spacing["2"] }}>
-              <RoverText style={{ flex: 1 } as any}>{fs.skill}</RoverText>
-              <View style={{ ...styles.flexRow, alignItems: "center" }}>
-                {[...Array(numDots)].map((_, dotIdx) => (
-                  <View
-                    key={dotIdx}
+      {featuredSkillsWithText.length > 0 && (
+        <View style={{ ...styles.flexRowBetween, marginTop: spacing["0.5"] }}>
+          {featuredSkillsPair.map((pair, idx) => (
+            <View
+              key={idx}
+              style={{
+                ...styles.flexCol,
+              }}
+            >
+              {pair.map((featuredSkill, idx) => {
+                if (!featuredSkill) return null;
+                return (
+                  <RoverFeaturedSkill
+                    key={idx}
+                    skill={featuredSkill.skill}
+                    rating={featuredSkill.rating}
+                    themeColor={themeColor}
                     style={{
-                      height: "7pt",
-                      width: "7pt",
-                      marginLeft: dotIdx === 0 ? 0 : "3pt",
-                      borderRadius: 3.5,
-                      backgroundColor: fs.rating > dotIdx ? themeColor : "#d9d9d9",
+                      justifyContent: "flex-end",
                     }}
                   />
-                ))}
-              </View>
+                );
+              })}
             </View>
           ))}
         </View>
-      ) : null}
-
-      <View style={{ marginTop: featuredSkillsWithText.length > 0 ? spacing["2"] : 0 }}>
+      )}
+      <View style={{ ...styles.flexCol }}>
         <RoverBulletList items={descriptions} showBulletPoints={showBulletPoints} />
       </View>
     </RoverSection>
